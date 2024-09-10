@@ -20,6 +20,10 @@ def convert_shapefile_to_topojson(shapefile_path, output_dir):
     # Cargar el Shapefile utilizando geopandas
     start_load = time.time()
     gdf = gpd.read_file(shapefile_path)
+
+    # Filtrar filas con geometrías vacías
+    gdf = gdf[gdf.geometry.notnull()]
+
     end_load = time.time()
     print(f"Paso 1: Shapefile '{shapefile_path}' cargado en {end_load - start_load:.2f} segundos")
 
