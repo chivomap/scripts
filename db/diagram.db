@@ -1,0 +1,97 @@
+table users {
+  id int pk
+  name varchar
+  google_id varchar
+  email varchar
+  image_url varchar
+  role_id int [ref: > roles.id]
+}
+
+table roles {
+  id int pk
+  role_name varchar
+}
+
+table departments {
+  id int pk 
+  name varchar
+  geometry geometry(Polygon, 4326)
+}
+
+table buses {
+  id int pk
+  number_route varchar
+  code_route varchar
+  has_special bool
+  fees double
+  special_fees double
+  first_trip timestamp
+  last_trip timestamp
+  frequency interval
+  approx_travel_time interval
+  photo_url varchar
+  type_id int [ref: > type_buses.id]
+  subtype_id int [ref: > subtype_buses.id]
+  terminal_id int [ref: > terminals.id]
+  department_id int [ref: > departments.id] 
+}
+
+table type_buses {
+  id int pk
+  name varchar
+}
+
+table subtype_buses {
+  id int pk
+  name varchar
+}
+
+table direction_routes {
+  id int pk
+  direction_name varchar
+  time_range varchar
+}
+
+table routes {
+  id int pk
+  bus_id int [ref: > buses.id]
+  direction_id int [ref: > direction_routes.id]
+  geometry geometry(LineString, 4326)
+}
+
+table detours {
+  id int pk
+  route_id int [ref: > routes.id]
+  reason varchar
+  geometry geometry(LineString, 4326)
+  start_date date
+  end_date date
+}
+
+table stops {
+  id int pk
+  stop_name varchar
+  direction varchar
+  location geometry(Point, 4326)
+  photo_url varchar
+}
+
+table bus_stops {
+  id int pk
+  bus_id int [ref: > buses.id]
+  stop_id int [ref: > stops.id]
+}
+
+table terminals {
+  id int pk
+  direction varchar
+  terminal_name varchar
+  location geometry(Point, 4326) 
+  photo_url varchar
+}
+
+table fav_routes {
+  id int pk
+  route_id int [ref: > routes.id]
+  user_id int [ref: > users.id]
+}
