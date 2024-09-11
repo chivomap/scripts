@@ -1,3 +1,6 @@
+"""
+Convertir Shapefiles a GeoJSON (nota: funciono mejor que convertir a topojson)
+"""
 import os
 import geopandas as gpd
 import time

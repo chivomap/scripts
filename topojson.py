@@ -1,3 +1,6 @@
+"""
+Convertir Shapefile encontrados en una carpeta y sus subdirectorios a archivos TopoJSON (nota: funciono mejor hacerlo con GeoJSON)
+"""
 import os
 import geopandas as gpd
 from topojson import Topology
