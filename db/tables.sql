@@ -111,3 +111,6 @@ CREATE TABLE fav_routes (
   route_id INT REFERENCES routes(id),
   user_id INT REFERENCES users(id)
 );
+
+ALTER TABLE departments
+ALTER COLUMN geometry TYPE geometry(MultiPolygon, 4326);
