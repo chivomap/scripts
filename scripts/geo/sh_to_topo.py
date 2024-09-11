@@ -3,7 +3,7 @@ Convertir Shapefile encontrados en una carpeta y sus subdirectorios a archivos T
 """
 import os
 import geopandas as gpd
-from topojson import Topology
+from scripts.geo.sh_to_topo import Topology
 import time
 
 # Definir el directorio de salida para los archivos TopoJSON

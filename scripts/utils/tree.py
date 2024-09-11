@@ -2,8 +2,8 @@ import os
 
 def print_directory_tree(startpath, indent=''):
     for root, dirs, files in os.walk(startpath):
-        # Filtrar carpetas que empiezan con '.'
-        dirs[:] = [d for d in dirs if not d.startswith('.')]
+        # Filtrar carpetas que empiezan con '.' y la carpeta "0venv"
+        dirs[:] = [d for d in dirs if not d.startswith('.') and d != '0venv']
         
         # Obtener el nivel de profundidad del directorio
         level = root.replace(startpath, '').count(os.sep)
@@ -18,7 +18,7 @@ def print_directory_tree(startpath, indent=''):
             print(f"{subindent}{f}")
 
 # Define el directorio raíz que deseas explorar
-start_directory = '.'  # Directorio actual o puedes cambiarlo a cualquier ruta
+start_directory = '.'  # Directorio padre (retrocede un directorio)
 
 # Imprimir la estructura de carpetas
 print_directory_tree(start_directory)

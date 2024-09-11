@@ -1,5 +1,5 @@
 import geopandas as gpd
-from topojson import Topology
+from scripts.geo.sh_to_topo import Topology
 import time
 
 # Medir el tiempo total
