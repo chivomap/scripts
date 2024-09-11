@@ -4,7 +4,7 @@ import os
 
 # Conexión a la base de datos PostgreSQL
 conn = psycopg2.connect(
-    dbname="chivorutas2", 
+    dbname="chivorutas4", 
     user="myuser", 
     password="mypassword", 
     host="localhost"

@@ -1,6 +1,7 @@
-# Rutas VMT - Conversión de Shapefiles a TopoJSON
+# ChivoMap Rutas - VMT
 
-Este repositorio contiene un script para convertir archivos **Shapefile** (.shp) a **TopoJSON**, recorriendo recursivamente subdirectorios y guardando los resultados en la carpeta `topojson`.
+Este repositorio tiene el objetivo de documentar el proceso de extracción de infomración de [VMT](https://www.vmt.gob.sv/transporte-colectivo-en-el-salvador/) para la creación de mapas y rutas de transporte público en El Salvador.
+
 
 ## Estructura del proyecto
 
