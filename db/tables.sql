@@ -1,3 +1,9 @@
+-- Table: roles
+CREATE TABLE roles (
+  id SERIAL PRIMARY KEY,
+  role_name VARCHAR(255)
+);
+
 -- Table: users
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -8,12 +14,6 @@ CREATE TABLE users (
   role_id INT REFERENCES roles(id)
 );
 
--- Table: roles
-CREATE TABLE roles (
-  id SERIAL PRIMARY KEY,
-  role_name VARCHAR(255)
-);
-
 -- Table: departments
 CREATE TABLE departments (
   id SERIAL PRIMARY KEY,
@@ -22,6 +22,27 @@ CREATE TABLE departments (
   area_km DECIMAL(10, 2),            -- Área en kilómetros cuadrados
   perimeter_km DECIMAL(10, 2),       -- Perímetro en kilómetros
   "order" INT                        -- Orden específico del departamento
+);
+
+-- Table: type_buses
+CREATE TABLE type_buses (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255)
+);
+
+-- Table: subtype_buses
+CREATE TABLE subtype_buses (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255)
+);
+
+-- Table: terminals
+CREATE TABLE terminals (
+  id SERIAL PRIMARY KEY,
+  direction VARCHAR(255),
+  terminal_name VARCHAR(255),
+  location GEOMETRY(Point, 4326),  -- Representa la ubicación del terminal
+  photo_url VARCHAR(255)
 );
 
 -- Table: buses
@@ -41,18 +62,6 @@ CREATE TABLE buses (
   subtype_id INT REFERENCES subtype_buses(id),
   terminal_id INT REFERENCES terminals(id),
   department_id INT REFERENCES departments(id)
-);
-
--- Table: type_buses
-CREATE TABLE type_buses (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(255)
-);
-
--- Table: subtype_buses
-CREATE TABLE subtype_buses (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(255)
 );
 
 -- Table: direction_routes
@@ -94,15 +103,6 @@ CREATE TABLE bus_stops (
   id SERIAL PRIMARY KEY,
   bus_id INT REFERENCES buses(id),
   stop_id INT REFERENCES stops(id)
-);
-
--- Table: terminals
-CREATE TABLE terminals (
-  id SERIAL PRIMARY KEY,
-  direction VARCHAR(255),
-  terminal_name VARCHAR(255),
-  location GEOMETRY(Point, 4326),  -- Representa la ubicación del terminal
-  photo_url VARCHAR(255)
 );
 
 -- Table: fav_routes

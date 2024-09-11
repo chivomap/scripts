@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db:
+    build: .  # Usa el Dockerfile en el directorio actual
+    container_name: chivorutasdb
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    volumes:
+      - pgdata:/var/lib/postgresql/data  # Persistencia de los datos de la BD
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myuser"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:
