@@ -1,0 +1,34 @@
+{
+  "type": "FeatureCollection",
+  "name": "Rutas Interurbanas",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "C\u00f3digo_de": "AB061X0AH",
+        "Nombre_de_": "61",
+        "SENTIDO": "IDA",
+        "TIPO": "POR AUTOBUS",
+        "SUBTIPO": "INTERURBANO",
+        "DEPARTAMEN": "AHUACHAPAN",
+        "Kil\u00f3metro": "9.40201140845508",
+        "CANTIDAD_D": 6,
+        "Shape_Leng": 9401.42328248
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -89.81839954054254
+          ]
+        ]
+      }
+    }
+  ]
+}

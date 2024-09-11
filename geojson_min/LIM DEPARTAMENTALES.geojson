@@ -1,0 +1,38 @@
+{
+  "type": "FeatureCollection",
+  "name": "LIM DEPARTAMENTALES",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "FCODE": "FA003",
+        "COD": 1,
+        "NA2": "LA UNION",
+        "NA3": "14",
+        "NAM": "La Union",
+        "AREA_KM": 1974.13,
+        "PERIMETRO": 388.46,
+        "Shape_Leng": 3.54644522862,
+        "Shape_Area": 0.164834848253
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -87.68407007027736
+              ]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
