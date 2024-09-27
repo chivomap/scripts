@@ -59,7 +59,7 @@ def obtener_valores_unicos(archivo_geojson, propiedad):
     return list(valores_unicos)
 
 # Ruta de la carpeta con los archivos GeoJSON
-geojson_dir = 'geojson'
+geojson_dir = '/home/devel/dev/ch1vo/rutas-vmt/data/geo/geojson'
 
 # Paso 1: Elegir archivo GeoJSON
 archivo_geojson = elegir_archivo_geojson(geojson_dir)
