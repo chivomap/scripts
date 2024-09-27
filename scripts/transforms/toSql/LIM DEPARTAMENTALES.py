@@ -1,18 +1,16 @@
-import psycopg2
 import json
 import os
+from db_connection import get_db_connection
 
-# Conexión a la base de datos PostgreSQL
-conn = psycopg2.connect(
-    dbname="chivorutas4", 
-    user="myuser", 
-    password="mypassword", 
-    host="localhost"
-)
+# Obtener la conexión
+conn = get_db_connection()
 cur = conn.cursor()
 
-# Obtener la ruta relativa al archivo GeoJSON desde la carpeta 'migrate'
-geojson_path = os.path.join(os.path.dirname(__file__), '../geojson/LIM DEPARTAMENTALES.geojson')
+# Obtener la ruta de la raíz del proyecto
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
+
+# Construir la ruta relativa desde la raíz del proyecto
+geojson_path = os.path.join(project_root, 'data', 'geo',  'geojson', 'LIM DEPARTAMENTALES.geojson')
 
 # Leer el archivo GeoJSON
 with open(geojson_path, 'r', encoding='utf-8') as f:
