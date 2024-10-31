@@ -20,7 +20,7 @@ def log_warning(message):
 
 # Obtener la ruta del proyecto y la ubicación del archivo GeoJSON
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
-geojson_path = os.path.join(project_root, 'data', 'geo', 'geojson', 'Rutas Urbanas.geojson')
+geojson_path = os.path.join(project_root, 'data', 'geo', 'geojson', 'Rutas Interdepartamentales.geojson')
 
 # Leer el archivo GeoJSON
 with open(geojson_path, 'r', encoding='utf-8') as f:

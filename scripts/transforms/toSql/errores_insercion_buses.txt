@@ -1,1 +1,2 @@
 Log de advertencias y errores de inserción de autobuses:
+WARNING: No se encontró el ID para el departamento 'None' en la ruta AB171X0LP. Se insertará NULL.

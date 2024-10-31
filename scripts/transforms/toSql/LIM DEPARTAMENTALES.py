@@ -53,12 +53,12 @@ for feature in data['features']:
     area_km = feature['properties']['AREA_KM']
     perimeter_km = feature['properties']['PERIMETRO']
     
-    # Manejo del campo 'NA3' para 'order'
-    order_value = feature['properties']['NA3']
+    # Manejo del campo 'NA3' para 'sort_order'
+    sort_order_value = feature['properties']['NA3']
     try:
-        order = int(order_value) if order_value.isdigit() else None  # Si no es numérico, se asigna None
+        sort_order = int(sort_order_value) if sort_order_value.isdigit() else None  # Si no es numérico, se asigna None
     except ValueError:
-        order = None
+        sort_order = None
 
     # Convertir la geometría en formato WKT
     geometry_type = feature['geometry']['type']
@@ -83,11 +83,11 @@ for feature in data['features']:
     if wkt_geom:
         # Insertar en la tabla
         sql = """
-        INSERT INTO departments (name, geometry, area_km, perimeter_km, "order")
+        INSERT INTO departments (name, geometry, area_km, perimeter_km, sort_order)
         VALUES (%s, ST_GeomFromText(%s, 4326), %s, %s, %s)
         """
         try:
-            cur.execute(sql, (name, wkt_geom, area_km, perimeter_km, order))
+            cur.execute(sql, (name, wkt_geom, area_km, perimeter_km, sort_order))
         except Exception as e:
             print(f"Error al insertar el departamento: {name}")
             print(f"Error: {e}")
