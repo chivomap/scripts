@@ -17,8 +17,8 @@ def reduce_structure(data):
         return data
 
 # Directorio donde están los archivos geojson
-geojson_dir = 'geojson'
-output_dir = 'geojson_min'  # Directorio para guardar los archivos con estructura reducida
+geojson_dir = 'data/geo/geojson'
+output_dir = 'data/geo/geojson_min'  # Directorio para guardar los archivos con estructura reducida
 
 # Crear el directorio de salida si no existe
 if not os.path.exists(output_dir):

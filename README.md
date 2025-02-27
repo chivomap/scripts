@@ -1,6 +1,8 @@
-# ChivoMap Rutas - VMT
+# ChivoMap - Script
 
-Este repositorio tiene el objetivo de documentar el proceso de extracción de infomración de [VMT](https://www.vmt.gob.sv/transporte-colectivo-en-el-salvador/) para la creación de mapas y rutas de transporte público en El Salvador.
+Documentación de script de transformación y utilidades para trabajar con datos geoespaciales para ChivoMap.
+
+Al día de hoy se ha logrado transofrmar la data geoespacial en shapefile de [VMT](https://www.vmt.gob.sv/transporte-colectivo-en-el-salvador/) para la creación de mapas y rutas de transporte público en El Salvador.
 
 
 ## Estructura del proyecto
@@ -15,9 +17,8 @@ Este repositorio tiene el objetivo de documentar el proceso de extracción de in
 
 - **topojson/**: Carpeta donde se almacenan los archivos **TopoJSON** generados a partir de los **Shapefiles**.
 
-- **main.py**: Script principal que realiza la conversión de los **Shapefiles** a **TopoJSON**.
 
-## Uso del script
+## Uso de los scripts
 
 ### Requerimientos
 
@@ -30,7 +31,7 @@ Este repositorio tiene el objetivo de documentar el proceso de extracción de in
 Para instalar las dependencias requeridas:
 
 ```bash
-pip install geopandas topojson
+pip install -r requirements.txt
 ```
 
 ### Cómo usar el script
@@ -38,34 +39,18 @@ pip install geopandas topojson
 1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/kedatech/rutas-vmt.git
+   git clone https://github.com/chivomap/scripts.git
    ```
 
 2. Navega al directorio del proyecto:
 
    ```bash
-   cd rutas-vmt
+   cd scripts
    ```
 
-3. Ejecuta el script **main.py**. Esto buscará todos los archivos **Shapefile** en la carpeta `data-vmt` y convertirá cada uno de ellos a **TopoJSON**, guardando los resultados en la carpeta `topojson`.
+3. Dentro de src/ están los diferentes scripts de transformación de datos geoespaciales:
 
    ```bash
-   python main.py
+   python src/properties_geojson.py
    ```
 
-4. El script imprimirá mensajes en la consola sobre el progreso de la conversión, incluyendo el tiempo que toma cada conversión individual y el tiempo total para convertir todos los archivos.
-
-### Ejemplo de ejecución
-
-```bash
-$ python main.py
-Buscando archivos Shapefile en 'data-vmt' y subdirectorios...
-Convirtiendo archivo: data-vmt/Limites departamentales/LIM DEPARTAMENTALES.shp
-Paso 1: Shapefile 'LIM DEPARTAMENTALES.shp' cargado en 0.32 segundos
-CRS original: EPSG:4326
-No es necesario reproyectar, ya está en WGS84
-Paso 3: Conversión a GeoJSON completada en 0.71 segundos
-Paso 4: Topología creada en 3.75 segundos
-Paso 5: Archivo TopoJSON guardado como 'topojson/LIM DEPARTAMENTALES.topojson' en 0.30 segundos
-Conversión completa para 'LIM DEPARTAMENTALES' en 5.09 segundos
-```

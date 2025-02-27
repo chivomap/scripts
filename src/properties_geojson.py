@@ -1,12 +1,16 @@
 """
-Este script permite al usuario seleccionar un archivo GeoJSON de una carpeta y luego muestra las propiedades de los features en el archivo.
+Este script permite al usuario seleccionar un archivo GeoJSON de una carpeta y luego muestra un resumen de las propiedades de los features.
+Es decir que obtiene un resumen de todos los valores únicos de una propiedad específica en los features del archivo seleccionado.
 """
 import os
 import json
 
+# Ruta de la carpeta con los archivos GeoJSON
+GEOJSON_DIR = '/home/devel/chivomap/scripts/data/geo/geojson'
+
 # Función para listar los archivos GeoJSON en la carpeta y permitir seleccionar uno
-def elegir_archivo_geojson(geojson_dir):
-    archivos = [f for f in os.listdir(geojson_dir) if f.endswith('.geojson')]
+def elegir_archivo_geojson(GEOJSON_DIR):
+    archivos = [f for f in os.listdir(GEOJSON_DIR) if f.endswith('.geojson')]
     if not archivos:
         print("No se encontraron archivos GeoJSON en la carpeta.")
         return None
@@ -21,7 +25,7 @@ def elegir_archivo_geojson(geojson_dir):
         try:
             eleccion = int(input("Elige un número: ")) - 1
             if 0 <= eleccion < len(archivos):
-                return os.path.join(geojson_dir, archivos[eleccion])
+                return os.path.join(GEOJSON_DIR, archivos[eleccion])
             else:
                 print("Número fuera de rango. Intenta de nuevo.")
         except ValueError:
@@ -58,11 +62,9 @@ def obtener_valores_unicos(archivo_geojson, propiedad):
 
     return list(valores_unicos)
 
-# Ruta de la carpeta con los archivos GeoJSON
-geojson_dir = '/home/devel/dev/ch1vo/rutas-vmt/data/geo/geojson'
 
 # Paso 1: Elegir archivo GeoJSON
-archivo_geojson = elegir_archivo_geojson(geojson_dir)
+archivo_geojson = elegir_archivo_geojson(GEOJSON_DIR)
 if archivo_geojson:
     # Paso 2: Mostrar las propiedades de los features
     propiedades = mostrar_propiedades(archivo_geojson)
